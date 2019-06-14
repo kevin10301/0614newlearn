@@ -1,3 +1,48 @@
 $git log --oneline --graph
 * SHA-1 "commit txt"
 * SHA-1 "commit txt"
+
+跳出git log
+$git log 
+q <quit log>
+
+
+【狀況題】我想要找某個人或某些人的 Commit…
+
+$ git log --oneline --author="kevin10301"
+930feb3 add pig
+51d54ff add lion and tiger
+
+$ git log --oneline --author="Sherly\|Eddie"
+
+
+【狀況題】我想要找 Commit 訊息裡面有在罵髒話的…
+使用 --grep 參數，可以從 Commit 訊息裡面搜尋符合字樣的內容：
+
+$ git log --oneline --grep="wtf"
+
+【狀況題】我要怎麼找到哪些 Commit 的檔案內容有提到 “Ruby” 這個字？
+使用 -S 參數，可以搜尋在所有 Commit 的檔案中，哪些符合特定條件的：
+
+$ git log -S "Ruby"
+
+【狀況題】主管：「你再混嘛！我看看你今天早上 Commit 了什麼！」
+在查歷史資料的時候，可以搭配 --since 跟 --until 參數查詢：
+
+$ git log --oneline --since="9am" --until="12am"
+這樣就可以找出「今天早上 9 點到 12 點之間所有的 Commit」。還可以再加一個 after：
+
+$ git log --oneline --since="9am" --until="12am" --after="2017-01"
+這樣可以找到「從 2017 年 1 月之後，每天早上 9 點到 12 點的 Commit」
+
+
+
+
+
+
+
+
+
+
+
+
